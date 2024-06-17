@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koppa Fluppa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<link href="" rel="stylesheet">
+
+<style>
+    
+    @font-face {
+    font-family: 'MinhaFontePersonalizada';
+    src: url(MarioLuigi2.ttf) format('woff2'),
+    }
+        #game-over-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        #game-over-screen img {
+            width: 250%;
+            max-width: 600px;
+        }
+
+        #game-over-screen h1 {
+            font-family: 'MinhaFontePersonalizada', sans-serif;
+            color: red;
+            font-size: 30px;
+            margin-top: 25px;
+            animation: blink 1.1s infinite;
+        }
+
+        #start-screen h1 {
+        font-family: 'MinhaFontePersonalizada', sans-serif;
+        color: red;
+        font-size: 30px;
+        margin-top: 25px;
+        animation: blink 1.5s infinite; /* Animação de piscar */
+        }
+
+        @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+        }
+
+</style>
+
+<body>
+    
+    <div id="game-container">
+        <!-- O conteúdo da tela de jogo estará aqui -->
+        <img id="bird" src="koopa.gif" alt="Flappy Bird">
+        <div id="obstacles"></div>
+        <div id="score-container">
+            <div id="score">0</div>
+            <div id="bonus">Bonus: 0</div>
+            <div id="record"></div>
+        </div>
+        <button id="restart-btn" onclick="restartGame()">Reiniciar</button>
+    </div>
+    
+    <div id="start-screen" style="display: flex; align-items: center; justify-content: center; flex-direction: column;  position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+        
+        
+        <img id="logo" src="logo.gif" alt="Logo do Jogo" style="max-width: 80%; margin-bottom: 20px;">
+        <h1>pressione space para continuar</h1>
+    </div>
+    
+    <div id="game-over-screen">
+        <img src="over.gif" alt="Game Over">
+        <h1>Pressione space para reiniciar</h1>
+    </div>
+    
+    <audio id="jump-sound">
+        <source src="pulo.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  
+    <audio id="score-sound">
+        <source src="ponto.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="background-music" loop="loop">
+        <source src="funkao.wav" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+      
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

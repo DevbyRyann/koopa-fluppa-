@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #70c5ce;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('fundo.jpg') repeat-x;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    animation: moveBackground 10s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes moveBackground {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+
+#start-screen {
+    position: fixed; /* Para garantir que a tela de início fique sobreposta */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Garantir que fique acima de todos os outros elementos */
+}
+
+#bird {
+    position: absolute;
+    width: 100px; /* Aumentar largura do pássaro */
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.obstacle {
+    position: absolute;
+    width: 100px; /* Aumentar largura dos obstáculos */
+    background-color: green;
+}
+
+.obstacle .pipe-head {
+    height: 30px; /* Aumentar altura da cabeça do cano */
+    width: 100%;
+    background-color: darkgreen;
+    position: absolute;
+}
+
+.obstacle.top .pipe-head {
+    border-radius: 0 0 10px 10px;
+    margin-bottom: -2px;
+    top: 0;
+}
+
+.obstacle.bottom .pipe-head {
+    border-radius: 10px 10px 0 0;
+    margin-top: -2px;
+    bottom: 0;
+}
+
+.top .pipe-body {
+    top: 0;
+}
+
+.obstacle.bottom .pipe-body {
+    position: absolute;
+    bottom: 30px; /* Ajustar baseado na altura da pipe-head */
+}
+
+#score-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px; /* Aumentar padding */
+    text-align: right;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 30px; /* Aumentar tamanho da fonte */
+    font-family: 'MinhaFontePersonalizada', sans-serif;
+}
+
+#score, #bonus, #record {
+    font-size: 30px; /* Aumentar tamanho da fonte */
+    margin: 0;
+}
+
+#record {
+    font-size: 28px; /* Aumentar tamanho da fonte */
+    color: rgb(227, 195, 12);
+}
+
+#bonus {
+
+    color: rgb(54, 255, 54)
+}
+
+#score {
+
+    color: red
+}
+
+#restart-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px; /* Aumentar padding */
+    font-size: 30px; /* Aumentar tamanho da fonte */
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
